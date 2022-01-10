@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/recruit?useSSL=false&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    username: root
+    password: password
+  resources:
+    static-locations: file:src/main/resources/static/
+    # cache-period: 0
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+#  mvc:
+#    dateFormat: yyyy-MM-dd
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml            # mapper sql语句位置
+  type-aliases-package: com.zhuquan.domain                  # 别名包
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   # mybatis打印sql语句
+    map-underscore-to-camel-case: true                      # 下划线转驼峰
+
+recruit:
+  upload:
+    file: D:\Javawebprojrct\recruit\data\file\   # 文件上传时本地保存路径
+    img: D:\Javawebprojrct\recruit\data\img\     # 图片上传时本地保存路径
+  download:
+    file: file             # 文件发布下载服务 的亲求路径
+    img: image             # 图片发布下载服务 的亲求路径
+  domainName: 127.0.0.1:8080  # 域名
+
